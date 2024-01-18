@@ -1,0 +1,26 @@
+﻿@model QueueUnderflow.Models.ApplicationUser
+
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <ul class="list-group my-5">
+        <li class="list-group-item">
+            <h5 class="mt-1 h5"> <i class="bi bi-person-fill"></i> UserName: @Model.UserName </h5>
+        </li>
+        <li class="list-group-item"> 
+            <h5 class="mt-1 h5"> <i class="bi bi-envelope"></i> Email: @Model.Email</li> </h5>
+        <li class="list-group-item">
+            <h5 class="mt-1 h5"> <i class="bi bi-list-stars"></i> Roles: </h5>
+            @foreach (var role in ViewBag.Roles)
+                {
+                    @role 
+                }
+        </li>
+    </ul>
+    <a href="/Users/Edit/@Model.Id" class="btn btn-info mx-3"><i class="bi bi-pencil"></i> Edit user</a>
+</div>
+
+
+
+
+
+
+

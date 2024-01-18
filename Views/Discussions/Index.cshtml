@@ -1,0 +1,48 @@
+﻿@{
+
+}
+
+<h2 class="h2-title mb-5">Search Results</h2>
+<br />
+
+@if (ViewBag.IsNull != "null")
+{
+    @foreach (QueueUnderflow.Models.Discussion discussion in ViewBag.Discussions)
+    {
+        <div class="row card" style="width:80rem;">
+            <div class="card-body article-card">
+                <div class="category" style="width:auto;">@discussion.Category.CategoryName</div>
+                @Html.Partial("DiscussionPreview", @discussion)
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        Nu au fost gasite discutii.
+    </div>
+}
+
+
+@if (ViewBag.Notification != null)
+{
+    <div id="toast" class="toast my-5 mx-2 align-items-center position-absolute top-0 end-0 text-white @ViewBag.Type border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <i class="bi @ViewBag.Icon"></i> @ViewBag.Notification
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    @section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#toast').toast("show");
+        });
+    </script>
+    }
+}
+
+

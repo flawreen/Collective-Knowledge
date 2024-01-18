@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model QueueUnderflow.Models.Discussion
+@{
+    string timeAgo = @Model.Date.ToString("MMMM dd, yyyy");
+}
+
+
+<div class="card-body article-card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <div class="card-text">@Html.Raw(Model.Content)</div>
+        <div class="text-end">
+            <small>started @timeAgo</small>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card" style="border:none !important;">
+
+                <form method="post" action="/Discussions/Show/@Model.Id">
+                    <div class="card-body">
+                        <input type="hidden" name="DiscussionId" value="@Model.Id" />
+                        <br />
+
+                        @Html.TextArea("Content", "", new { @class = "form-control summernote"})
+                        @Html.ValidationMessage("Content", null, new { @class = "text-danger" })
+                        <button class="btn btn-success mt-2" type="submit">Answer</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<div class="px-4">
+    @foreach (QueueUnderflow.Models.Answer ans in Model.Answers)
+    {
+        <div class="d-flex flex-start mb-4">
+            <div class="card w-100">
+                <div class="card-body p-4">
+                    <div class="">
+                        <h5>@ans.User.UserName</h5>
+                        <p class="small">@ans.Date.ToString("MMMM dd, yyyy")</p>
+                        <div class="card-text">@Html.Raw(ans.Content)</div>
+                    </div>
+                    @if (User.IsInRole("Admin") || ans.User.Id == @ViewBag.CurrentUserId)
+                    {
+                        <div class="d-flex">
+                            @if (ans.User.Id == ViewBag.CurrentUserId)
+                            {
+                                <a class="btn btn-outline-primary" href="/Answers/Edit/@ans.Id"><i class="bi bi-pencil-square"></i></a>
+                            }
+                            <div>
+                                <form method="post" action="/Answers/Delete/@ans.Id">
+                                    <button class="btn btn-outline-danger mx-2" type="submit"><i class="bi bi-trash"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

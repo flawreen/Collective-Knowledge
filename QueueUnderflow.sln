@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueUnderflow", "QueueUnderflow.csproj", "{B9DA68AD-8F6A-4BDB-8FDE-7114302E6697}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9DA68AD-8F6A-4BDB-8FDE-7114302E6697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DA68AD-8F6A-4BDB-8FDE-7114302E6697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DA68AD-8F6A-4BDB-8FDE-7114302E6697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DA68AD-8F6A-4BDB-8FDE-7114302E6697}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EF593AB-5E6F-4AEC-B500-4907BAA9F28D}
+	EndGlobalSection
+EndGlobal

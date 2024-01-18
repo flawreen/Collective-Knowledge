@@ -1,0 +1,86 @@
+﻿@model QueueUnderflow.Models.Discussion
+
+
+<h2 class="text-center mt-5">Edit discussion</h2>
+<br />
+
+@if(@User.IsInRole("Admin"))
+{
+    <div class="container mt-5">
+        <div class="row">
+
+            <div class="card-body article-card">
+                @Html.Partial("DiscussionPreview", @Model)
+            </div>
+
+            <div class="col-md-6 offset-3">
+                @using (Html.BeginForm(
+                    actionName: "Edit", 
+                    controllerName: "Discussions",
+                    method: FormMethod.Post,
+                    routeValues: new { id = Model.Id }
+                ))
+                {
+                    <input type="hidden" name="Title" value=@Model.Title />
+
+                    <input type="hidden" name="Content" value=@Model.Content />
+                    <br />
+                    <label>Category</label>
+                    <br />
+                    @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categ, "Value", "Text"),
+                            "Category", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CategoryId, null, new { @class = "text-danger" })
+                    <br />
+                    <button class="btn btn-sm btn-success" type="submit"><i class="bi bi-pencil"></i> Edit</button>
+                }
+            </div>
+        </div>
+    </div>
+}
+else 
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                @using (Html.BeginForm(
+                    actionName: "Edit", 
+                    controllerName: "Discussions",
+                    method: FormMethod.Post,
+                    routeValues: new { id = Model.Id }
+                ))
+                {
+                    @Html.Label("Title", "Title")
+                    <br />
+                    @Html.EditorFor(m => m.Title, new {  @class = "form-control" })
+
+                    @Html.ValidationMessageFor(m => m.Title, null, new { @class = "text-danger" })
+                    <br />
+
+                    @Html.Label("Content", "Content")
+                    <br />
+                    @Html.TextArea("Content", null, new { @class = "form-control summernote" })
+
+                    @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
+                    <br />
+
+                    <label>Category</label>
+                    <br />
+                    @Html.DropDownListFor(m => m.CategoryId,
+                             new SelectList(Model.Categ, "Value", "Text"),
+                             "Category", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CategoryId, null, new { @class = "text-danger" })
+                    <br />
+
+                    <button class="btn btn-sm btn-success" type="submit"><i class="bi bi-pencil"></i> Edit</button>
+
+                }
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+

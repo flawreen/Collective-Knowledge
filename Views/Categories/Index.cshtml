@@ -1,0 +1,63 @@
+﻿<h2 class="h2-title mb-5">Categories</h2>
+<br />
+
+@{
+    int discussionCount;
+}
+
+<div>
+    @foreach (QueueUnderflow.Models.Category categ in ViewBag.Categories)
+    {
+        @if (categ.Discussions.Count() > 3)
+        {
+            discussionCount = 3;
+        } else
+        {
+            discussionCount = categ.Discussions.Count();
+        }
+
+        <div class="row category-title">
+            @categ.CategoryName
+        </div>
+
+        @foreach(QueueUnderflow.Models.Discussion discussion in categ.Discussions)
+        {
+            @if (discussionCount <= 0)
+            {
+                break;
+            }
+
+            <div class="row card" style="width:80rem;">
+                <div class="card-body article-card">
+                    @Html.Partial("DiscussionPreview", discussion)
+                </div>
+            </div>
+
+            discussionCount -= 1;
+        }
+
+        <div class="text-end">
+            <a href="/Categories/Show/@categ.Id" class="link-dark more"><i class="bi bi-caret-right"></i> See all discussions</a>
+        </div>
+        <br /><br />
+    }
+</div>
+
+@if (ViewBag.Notification != null) {
+    <div id="toast" class="toast my-5 mx-2 align-items-center position-absolute top-0 end-0 text-white @ViewBag.Type border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+            <i class="bi @ViewBag.Icon"></i> @ViewBag.Notification
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    @section scripts {
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#toast').toast("show");
+            });
+        </script> 
+    }
+}

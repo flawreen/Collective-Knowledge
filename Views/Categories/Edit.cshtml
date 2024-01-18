@@ -1,0 +1,27 @@
+﻿@{
+
+}
+@model QueueUnderflow.Models.Category
+
+<div style="width:50rem;">
+    @using (Html.BeginForm(
+    actionName: "Edit",
+    controllerName: "Categories",
+    method: FormMethod.Post
+    ))
+    {
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <br />
+
+        <br />
+        @Html.Label("CategoryName", "Category name")
+        <br />
+        @Html.EditorFor(m => m.CategoryName, new { htmlAttributes = new { @class = "form-control"} })
+        @Html.ValidationMessage("CategoryName", null, new { @class = "text-danger" })
+        <br />
+
+        <br />
+
+        <button class="btn btn-success" type="submit"><i class="bi bi-pencil"></i> Edit Category</button>
+    }
+</div>

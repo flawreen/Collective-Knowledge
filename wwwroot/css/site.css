@@ -1,0 +1,160 @@
+html {
+    font-size: 14px;
+}
+h1.present {
+    color: #30336b; /* Bootstrap primary color for a vibrant look */
+    font-size: 3rem; /* Adjust the font size for emphasis */
+    font-weight: bold; /* Bold font weight for prominence */
+    text-align: center; /* Center align the text */
+    margin: 10px 0; /* Add some margin for spacing */
+}
+
+h2.present {
+    color: #30336b; /* Bootstrap primary color for a vibrant look */
+    text-align: center; /* Center align the text */
+    margin: 10px 0; /* Add some margin for spacing */
+}
+
+.container {
+    align-items: center;
+}
+
+.note-editor .dropdown-toggle::after {
+    display: none;
+}
+
+.more {
+    text-decoration: none !important;
+    transition: color 0.3s;
+}
+
+.more:hover {
+        color: #666666;
+}
+
+.h2-title {
+    color: #333; /* Dark text color */
+    font-size: 2.5rem; /* Adjust the font size */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px;
+}
+
+.category-title {
+    background-color: #30336b; /* Bootstrap's primary color */
+    color: #ffffff; /* White text on a dark background */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Styles for Category H3 */
+h3.category {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    color: #ff9933; /* Set the initial text color (vibrant pink) */
+    margin-bottom: 10px; /* Add margin at the bottom for spacing */
+    border-bottom: 2px solid #ff3366; /* Add a bottom border with the same color */
+    padding-bottom: 5px; /* Add padding at the bottom for a bit of space above the border */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.buton-sort {
+    background-color: #30336b !important;
+    color: #dff9fb !important;
+}
+
+
+.navbar {
+    background-color: #30336b !important;
+    border: none !important;
+    box-shadow: 0 3px 12px #636e72 !important;
+}
+
+.navbar-brand {
+    color: #dff9fb !important;
+}
+
+a.nav-link {
+    color: #c7ecee !important;
+}
+
+a.nav-link:hover {
+    color: #00b894 !important;
+}
+
+.logoutbtn {
+    color: #c7ecee !important;
+}
+
+.logoutbtn:hover {
+    color: #00b894 !important;
+}
+
+.card {
+    border: medium;
+}
+
+.article-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article-card .card-body {
+    padding: 10px;
+}
+
+.article-card .card-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.article-card .card-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+.category {
+    background-color: #30336b;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.article-card .date {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Hover effect */
+h3.category:hover {
+    color: #33ccff; /* Change text color on hover (vibrant blue) */
+    border-color: #33ccff; /* Change border color on hover */
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}

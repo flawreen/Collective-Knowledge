@@ -1,0 +1,17 @@
+﻿@model QueueUnderflow.Models.ApplicationUser
+
+
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Users",
+        method: FormMethod.Post, routeValues: new { id = @Model.Id }))
+{
+    <label>Select new role</label>
+    @Html.DropDownList("newRole", new SelectList(Model.AllRoles, "Value", "Text", ViewBag.UserRole), null, new { @class = "form-control" })
+
+    <br />
+
+    <button class="btn btn-sm btn-success" type="submit">Editare user</button>
+
+
+}
+
