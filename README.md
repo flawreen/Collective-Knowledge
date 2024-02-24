@@ -6,7 +6,12 @@
 <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" />
 <img src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white" />
 
-// TODO demo video
+
+[Demo Video](https://github.com/flawreen/MVC-StackOverflow/assets/83332450/7a9fa953-0fdc-4287-a74d-bf38cc5717ee)
+
+
+[Alternative Demo Link](https://streamable.com/2hwpzl)
+
 
 ### Max-heap search engine [link](/Controllers/DiscussionsController.cs)
 
